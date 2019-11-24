@@ -22,8 +22,9 @@ public class DisplayManager {
 			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 			Display.create(new PixelFormat(), attribs);
 			String version = GL11.glGetString(GL11.GL_VERSION);
-			Display.setTitle(TITLE);
-			System.out.println("OpenGL version : "+version);
+			String openGLver = "OpenGL version : "+version;
+			Display.setTitle(TITLE+" | "+openGLver);
+			System.out.println(openGLver);
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
