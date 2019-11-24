@@ -27,6 +27,7 @@ public class DisplayManager {
 			System.out.println(openGLver);
 		} catch (LWJGLException e) {
 			e.printStackTrace();
+			System.exit(-1);
 		}
 		
 		GL11.glViewport(0, 0, WIDTH, HEIGHT);//set whole display to render
