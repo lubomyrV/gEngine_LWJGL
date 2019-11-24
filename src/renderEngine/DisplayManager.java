@@ -12,18 +12,21 @@ public class DisplayManager {
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 	private static final int FPS_CAP = 60;
-	private static final String TITLE = "First display";
+	private static final String TITLE = "Main display";
 	
 	public static void createDisplay() {
 		
 		//OpenGL version 3.2 
-		ContextAttribs attribs = new ContextAttribs(3,2).withForwardCompatible(true).withProfileCore(true);		
+		ContextAttribs attribs = new ContextAttribs(3,2)
+			.withForwardCompatible(true)
+			.withProfileCore(true);
+		
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 			Display.create(new PixelFormat(), attribs);
 			String version = GL11.glGetString(GL11.GL_VERSION);
 			String openGLver = "OpenGL version : "+version;
-			Display.setTitle(TITLE+" | "+openGLver);
+			Display.setTitle(TITLE);
 			System.out.println(openGLver);
 		} catch (LWJGLException e) {
 			e.printStackTrace();
